@@ -21,6 +21,10 @@ Or you can use it as standalone!
 # Encrypt hash
 `ksed -e stringToEncrypt`
 
+# Decrypt hash
+`ksed -d HashBase64ToDecrypt`
+
+
 For help use `ksed -h`
 
 # Example of secret file in plain text
