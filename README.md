@@ -10,9 +10,27 @@ Or you can use it as standalone!
 `ksed -e /path/to/your/file/in/plain/text`
 
 # Decrypt file
-`ksed -d /path/to/your/file/in/plain/text`
+`ksed -d /path/to/your/encrypted/file`
 
 # Encrypt hash
 `ksed -e stringToEncrypt`
 
 For help use `ksed -h`
+
+# Example of secret file in plain text
+
+```
+name: Linus
+pass: x1y2p3
+```
+
+The file in plain text `can` contains spaces or enters, the script normalizes it, for example: 
+
+```
+
+name: Linus
+pass: x1y2p3
+
+address: localhost      
+id: 32 
+```
