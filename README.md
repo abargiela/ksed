@@ -2,6 +2,7 @@
 - [Encrypt file](#encrypt-file)
 - [Decrypt file](#decrypt-file)
 - [Encrypt hash](#encrypt-hash)
+- [Decrypt hash](#decrypt-hash)
 - [Example of secret file in plain text](#example-of-secret-file-in-plain-text)
 
 # Description
