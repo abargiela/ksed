@@ -1,3 +1,9 @@
+- [Description](#description)
+- [Encrypt file](#encrypt-file)
+- [Decrypt file](#decrypt-file)
+- [Encrypt hash](#encrypt-hash)
+- [Example of secret file in plain text](#example-of-secret-file-in-plain-text)
+
 # Description
 `ksed` = Kubernetes secret encrypt/decrypt
 
