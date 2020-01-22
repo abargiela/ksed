@@ -40,3 +40,6 @@ pass: x1y2p3
 address: localhost      
 id: 32 
 ```
+
+
+Special thanks for: [Jefferson Alcantara](https://github.com/jefferson22alcantara) who colaborates in this script!!
