@@ -27,12 +27,12 @@ function decrypt(){
   # Test if is a regular file that you're trying to decrypt
   if [[ -f ${FILE}  ]];then
     tmpfile=$(mktemp)
-    awk '{ system ("var1=`echo "$1"`;var2=`echo "$2" | base64 -d`; echo $var1 $var2") }' "${FILE}" > "${tmpfile}"
+    awk '{ system ("var1=`echo "$1"`;var2=`echo "$2" | base64 --decode`; echo $var1 $var2") }' "${FILE}" > "${tmpfile}"
     cat "${tmpfile}" > "${FILE}"
     rm -f  "${tmpfile}"
   # If not a regular file, it's considered a string.
   else
-    echo "${FILE}" | base64 -d
+    echo "${FILE}" | base64 --decode
   fi
 }
 
