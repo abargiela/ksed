@@ -3,7 +3,7 @@
 # This script was created to transform plain text passwords to base64.
 # For informations about the usage of this script, execute the script passing -h for help
 
-# For more info: https://github.com/abargiela/kubernetes_secret_encrypt_decrypt_base64
+# For more info: https://github.com/abargiela/kubernetes_secret_encode_decode_base64
 
 function backup() {
   # Create a backup file in the current file directory
@@ -11,8 +11,8 @@ function backup() {
   echo "Backup file created at: ${FILE}-bkp-$(date +"%m-%d-%Y_%H-%M-%S")"
 }
 
-function encrypt() {
-  # Test if is a regular file that you're trying to encrypt
+function encode() {
+  # Test if is a regular file that you're trying to encode
   if [[ -f ${FILE} ]]; then
     backup
     tmpfile=$(mktemp)
@@ -25,8 +25,8 @@ function encrypt() {
   fi
 }
 
-function decrypt() {
-  # Test if is a regular file that you're trying to decrypt
+function decode() {
+  # Test if is a regular file that you're trying to decode
   if [[ -f ${FILE} ]]; then
     tmpfile=$(mktemp)
     awk '{ system ("var1=`echo "$1"`;var2=`echo "$2" | base64 --decode`; echo $var1 $var2") }' "${FILE}" >"${tmpfile}"
@@ -39,7 +39,7 @@ function decrypt() {
 }
 
 function helper() {
-  echo -n "Usage: $0 [-e encrypt] [-d decrypt] file|string
+  echo -n "Usage: $0 [-e encode] [-d decode] file|string
 Example: $0 -e /tmp/file_with_plain_passwords.txt"
   exit 1
 }
@@ -56,11 +56,11 @@ while getopts ":edh" opt; do
   case ${opt} in
   e)
     FILE=$2
-    encrypt
+    encode
     ;;
   d)
     FILE=$2
-    decrypt
+    decode
     ;;
   \? | h)
     helper
