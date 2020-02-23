@@ -47,7 +47,7 @@ address: localhost
 id: 32 
 ```
 
-# Know problems
+# Known problem
 If you run the script converting the file to base64, so run again it will generate the base64 of the already converted base64 file, know this, we implemented the backup function, to preserve the original file in case you do not have this file in a repository or anything like that, again, do not forget to remove the backup file before commit the file in you repository.
 
 Special thanks for: [Jefferson Alcantara](https://github.com/jefferson22alcantara) who colaborates in this script!!
