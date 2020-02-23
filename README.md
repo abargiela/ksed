@@ -1,29 +1,30 @@
 - [Description](#description)
-- [Encrypt file](#encrypt-file)
-- [Decrypt file](#decrypt-file)
-- [Encrypt hash](#encrypt-hash)
-- [Decrypt hash](#decrypt-hash)
+- [Convert to base64 file](#convert-to-base64-file)
+- [Restore the file to plain text](#restore-the-file-to-plain-text)
+- [Convert a hash to base64](#convert-a-hash-to-base64)
+- [Restore base64 hash to PlainText](#restore-base64-hash-to-plaintext)
 - [Example of secret file in plain text](#example-of-secret-file-in-plain-text)
+- [Know problems](#know-problems)
 
 # Description
-`ksed` = Kubernetes secret encrypt/decrypt
+`ksed` = Kubernetes secret encode/decode 
 
-This script can be used in your pipeline to convert the secret file in plain text to an ecrypted one.
+This script can be used in your pipeline to convert the secret file in plain text to a base64 one.
 Or you can use it as standalone! 
 
-`PS.: When the script runs to encrypt the file it generates a backup file to preserve your original.`
+`PS.: When the script runs to convert the file secrets into a base64 format, it generates a backup file in the same directory where the original file is, so, take care to do not commit this backup file, or simply comment the line 17.`
 
-# Encrypt file
+# Convert to base64 file
 `ksed -e /path/to/your/file/in/plain/text`
 
-# Decrypt file
-`ksed -d /path/to/your/encrypted/file`
+# Restore the file to plain text
+`ksed -d /path/to/your/file/in/base64`
 
-# Encrypt hash
-`ksed -e stringToEncrypt`
+# Convert a hash to base64
+`ksed -e stringToConvert`
 
-# Decrypt hash
-`ksed -d HashBase64ToDecrypt`
+# Restore base64 hash to PlainText
+`ksed -d HashBase64ToPlainText`
 
 
 For help use `ksed -h`
@@ -46,5 +47,7 @@ address: localhost
 id: 32 
 ```
 
+# Know problems
+If you run the script converting the file to base64, so run again it will generate the base64 of the already converted base64 file, know this, we implemented the backup function, to preserve the original file in case you do not have this file in a repository or anything like that, again, do not forget to remove the backup file before commit the file in you repository.
 
 Special thanks for: [Jefferson Alcantara](https://github.com/jefferson22alcantara) who colaborates in this script!!
